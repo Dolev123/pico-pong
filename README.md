@@ -15,14 +15,16 @@ sudo dnf install arm-none-eabi
 
 # in a seperate directory
 # cloning pico sdk
-git clone https://github.com/raspberrypi/pico-sdk.git
+git clone https://github.com/raspberrypi/pico-sdk.git && cd pico-sdk
+git submodule update --init
+cd ..
 export PICO_SDK_PATH="$(pwd)/pico-sdk"
 
 # move to the original directory
 # make sure you have 7zip (7z), then download
 mkdir pico_lcd && cd pico_lcd
 wget https://files.waveshare.com/upload/0/06/Pico-LCD-1.14.zip
-7z e Pico-LCD-1.14.zip
+7z x Pico-LCD-1.14.zip
 cd c
 # copy the pong files
 mkdir pong
